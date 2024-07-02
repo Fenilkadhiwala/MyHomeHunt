@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  ui:
+    build: 
+      context: ./UI
+      dockerfile: Dockerfile
+    container_name: mhh-container
+    ports:
+      - "3000:3000"  
+    volumes:
+      - ./UI/:/app   
+    command: yarn dev
