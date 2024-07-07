@@ -1,9 +1,9 @@
-import { Button } from "@mantine/core";
+import { Header } from "@/section/Header";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button>Click Here</Button>
+    <main>
+      <Header />
     </main>
   );
 }
