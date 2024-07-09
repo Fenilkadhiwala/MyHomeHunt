@@ -16,6 +16,7 @@ import {
   Group,
   ScrollArea,
 } from "@/component/core";
+import Image from "next/image";
 
 export const Header = () => {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
@@ -27,9 +28,9 @@ export const Header = () => {
     <Box pb={120}>
       <div className={classes.header}>
         <Group className={classes.group} h="100%">
-          <h1 className="text-[1.1875rem] font-semibold xs:text-xl xs:font-semibold sm:text-2xl sm:font-bold">
-            MyHomeHunt
-          </h1>
+          <div className="cursor-pointer relative w-[135px] h-[50px] sm:w-[150px]">
+            <Image src="/assets/logo.png" fill alt="MyHomeHunnnt" />
+          </div>
           <Group className="flex justify-center" h="100%">
             <Group className="flex justify-center" visibleFrom="md">
               <HeaderNavigations />
