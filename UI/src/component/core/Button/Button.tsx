@@ -1,7 +1,6 @@
 import React from "react";
-import { ButtonProps } from "@mantine/core";
-import { ButtonAdapter } from "../adapter";
+import { ButtonAdapter, ButtonExtendedProps } from "../adapter/ButtonAdapter";
 
-export const Button: React.FC<ButtonProps> = ({ ...props }) => {
+export const Button: React.FC<ButtonExtendedProps> = ({ ...props }) => {
   return <ButtonAdapter {...props} />;
 };

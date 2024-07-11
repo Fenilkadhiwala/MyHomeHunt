@@ -6,9 +6,12 @@ import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import { rem } from "@mantine/core";
 import { useState } from "react";
 import { useMediaQuery } from "@mantine/hooks";
+import { LoginSignupModal } from "../LoginSignup";
 
-export const DrawerNavigations = () => {
+export const DrawerNavigations = ({ onModalOpen }: any) => {
   const showUserInDrawer = useMediaQuery(`(max-width: 435px`);
+  const [showLoginSignupModal, setShowLoginSignupModal] =
+    useState<boolean>(false);
   const [linksOpened, setLinksOpened] = useState(
     new Array(NavigationItems.length).fill(false)
   );
@@ -16,6 +19,14 @@ export const DrawerNavigations = () => {
   const [iconState, setIconState] = useState(
     new Array(NavigationItems.length).fill(false)
   );
+
+  const openLoginSignupModal = () => {
+    onModalOpen();
+  };
+
+  const closeLoginSignupModal = () => {
+    setShowLoginSignupModal(false);
+  };
 
   const toggleLink = (index: number) => {
     setLinksOpened((prev) =>
@@ -55,11 +66,21 @@ export const DrawerNavigations = () => {
       ))}
       {showUserInDrawer ? (
         <div className="px-5 mt-3">
-          <Button radius="md" fullWidth className="font-semibold">
+          <Button
+            radius="md"
+            color="#f21616"
+            fullWidth
+            className="font-semibold"
+            onClick={openLoginSignupModal}
+          >
             LOGIN / REGISTER
           </Button>
         </div>
       ) : null}
+      <LoginSignupModal
+        show={showLoginSignupModal}
+        handleClose={closeLoginSignupModal}
+      />
     </>
   );
 };
