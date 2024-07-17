@@ -58,9 +58,8 @@ services:
     volumes:
       - ./UI/:/app
     depends_on:
-      - postgres
-    networks:
-      - mhh-network
+      postgres:
+        condition: service_healthy
     command: yarn dev
 
 volumes:
