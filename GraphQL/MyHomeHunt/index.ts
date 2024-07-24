@@ -6,7 +6,11 @@ const { postgraphile } = require("postgraphile");
 
 dotenv.config();
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 const DataBaseUrl = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.DB_HOST}:5432/${process.env.POSTGRES_DB}`;
 app.use(
   postgraphile(DataBaseUrl, process.env.POSTGRES_SCHEMA, {

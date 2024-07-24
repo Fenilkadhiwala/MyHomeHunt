@@ -42,13 +42,13 @@ services:
 
   ui:
     build:
-      context: ./UI
+      context: ./MyHomeHunt
       dockerfile: Dockerfile
     container_name: mhh-container
     ports:
       - "3000:3000"
     volumes:
-      - ./UI/:/app
+      - ./MyHomeHunt/:/app
     depends_on:
       postgres:
         condition: service_healthy
