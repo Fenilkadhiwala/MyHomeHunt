@@ -1,25 +1,36 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const playground = require("graphql-playground-middleware-express").default;
-const { postgraphile } = require("postgraphile");
-
-dotenv.config();
-const app = express();
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
+import express from "express";
+import { postgraphile } from "postgraphile";
+import PostGraphileConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
+import PostGraphileManyCUDPlugin from "postgraphile-plugin-many-create-update-delete";
+import { makeAddInflectorsPlugin } from "graphile-utils";
+const InflectorsPlugin = makeAddInflectorsPlugin(
+  (oldInflectors) => ({
+    singularize(string) {
+      return string;
+    },
+  }),
+  true
 );
+
+const app = express();
+
+const Plugins: any = [
+  PostGraphileConnectionFilterPlugin,
+  PostGraphileManyCUDPlugin,
+  InflectorsPlugin,
+];
 const DataBaseUrl = `postgres://${process.env.POSTGRES_USER}:${process.env.POSTGRES_PASSWORD}@${process.env.DB_HOST}:5432/${process.env.POSTGRES_DB}`;
+// const DataBaseUrl = "postgres://postgres:postgres@localhost:5432/myhomehunt";
+
 app.use(
-  postgraphile(DataBaseUrl, process.env.POSTGRES_SCHEMA, {
+  postgraphile(DataBaseUrl, "public", {
+    appendPlugins: Plugins,
     classicIds: true,
     dynamicJson: true,
     ignoreRBAC: false,
     retryOnInitFail: true,
-    watchPg: true,
-    graphiql: false,
+    watchPg: false,
+    graphiql: true,
     includeExtensionResources: true,
     graphileBuildOptions: {
       auditPlugin: {
@@ -27,17 +38,16 @@ app.use(
         nameProps: false,
       },
     },
+    pgSettings(request) {
+      return {
+        "pgmemento.session_info": JSON.stringify({
+          userData: request?.headers?.userdata,
+        }),
+      };
+    },
   })
 );
 
-const playgroundPort = process.env.GRAPHQL_LISTEN_PORT || 4443;
-app.get(
-  "/playground",
-  playground({
-    endpoint: `/graphql`,
-  })
-);
-
-app.listen(playgroundPort, () => {
-  console.log(`GraphQL Playground running on port ${playgroundPort}`);
+app.listen(5000, () => {
+  console.log("http://localhost:5000");
 });

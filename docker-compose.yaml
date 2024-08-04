@@ -17,30 +17,33 @@ services:
       timeout: 5s
       retries: 5
 
-  postgraphile:
-    container_name: mhh-postgraphile-api
-    image: graphile/postgraphile:4
-    ports:
-      - "5000:5000"
-    environment:
-      DATABASE_URL: postgres://postgres:postgres@postgres:5432/myhomehunt
-      GRAPHQL_SCHEMA: public
-    depends_on:
-      postgres:
-        condition: service_healthy
-
   graphql:
     build:
       context: ./GraphQL/MyHomeHunt
       dockerfile: Dockerfile
     container_name: mhh-graphql-api
     ports:
-      - "4443:4443"
+      - "5000:5000"
     depends_on:
       postgres:
         condition: service_healthy
+    env_file:
+      - ./GraphQL/MyHomeHunt/.env
 
-  ui:
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    container_name: mhh-api
+    restart: always
+    ports:
+      - "4443:4443"
+    volumes:
+      - ./API:/app
+    env_file:
+      - ./API/.env
+
+  myhomehunt:
     build:
       context: ./MyHomeHunt
       dockerfile: Dockerfile

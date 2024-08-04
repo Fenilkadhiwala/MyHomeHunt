@@ -11,7 +11,7 @@
   },
   "include": [
     "*.ts"
-  ], /* Include all TypeScript files in the current directory */
+, "startServer.ts"  ], /* Include all TypeScript files in the current directory */
   "exclude": [
     "node_modules",
   ] /* Exclude node_modules and build from compilation */
