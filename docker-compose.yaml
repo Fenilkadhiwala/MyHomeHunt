@@ -16,42 +16,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  graphql:
-    build:
-      context: ./GraphQL/MyHomeHunt
-      dockerfile: Dockerfile
-    container_name: mhh-graphql-api
-    ports:
-      - "5000:5000"
-    depends_on:
-      postgres:
-        condition: service_healthy
-    env_file:
-      - ./GraphQL/MyHomeHunt/.env
-
-  api:
-    build:
-      context: ./API
-      dockerfile: Dockerfile
-    container_name: mhh-api
-    restart: always
-    ports:
-      - "4443:4443"
-    volumes:
-      - ./API:/app
-    env_file:
-      - ./API/.env
-
   myhomehunt:
     build:
-      context: ./MyHomeHunt
+      context: ./NextMyHomeHunt
       dockerfile: Dockerfile
     container_name: mhh-container
     ports:
       - "3000:3000"
     volumes:
-      - ./MyHomeHunt/:/app
+      - ./NextMyHomeHunt/:/app
     depends_on:
       postgres:
         condition: service_healthy
