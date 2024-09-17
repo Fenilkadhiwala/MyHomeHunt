@@ -42,6 +42,7 @@ export const NavigationsHoverCard = ({ item, topAreaItems = [] }: any) => {
               onMouseLeave={revertArrowIcon}
               component="span"
               mr={5}
+              className="text-[#d7d2ce] hover:text-white"
             >
               {item?.title}
             </Box>
@@ -50,14 +51,14 @@ export const NavigationsHoverCard = ({ item, topAreaItems = [] }: any) => {
                 onMouseOver={changeArrowIcon}
                 onMouseLeave={revertArrowIcon}
                 style={{ width: rem(16), height: rem(16) }}
-                color="#F21616"
+                color="white"
               />
             ) : (
               <IconChevronDown
                 onMouseOver={changeArrowIcon}
                 onMouseLeave={revertArrowIcon}
                 style={{ width: rem(16), height: rem(16) }}
-                color="#F21616"
+                color="white"
               />
             )}
           </Center>

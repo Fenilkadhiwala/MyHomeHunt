@@ -77,22 +77,8 @@
   transition: background-color 100ms ease;
 }
 
-.user:hover {
-  background-color: light-dark(
-    var(--mantine-color-white),
-    var(--mantine-color-dark-8)
-  );
-}
-
 @media (max-width: 435px) {
   .user {
     display: none;
   }
-}
-
-.userActive {
-  background-color: light-dark(
-    var(--mantine-color-white),
-    var(--mantine-color-dark-8)
-  );
 }

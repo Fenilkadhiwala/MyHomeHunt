@@ -43,11 +43,13 @@ export const Header = () => {
 
   return (
     <>
-      <Box pb={120}>
-        <div className={classes.header}>
+      <Box className="bg-transparent">
+        <div
+          className={`${classes.header} absolute top-0 left-0 w-full z-10 bg-transparent`}
+        >
           <Group className={classes.group} h="100%">
-            <div className="cursor-pointer relative w-[135px] h-[50px] sm:w-[150px]">
-              <Image src="/assets/logo.png" fill alt="MyHomeHunnnt" />
+            <div className="cursor-pointer relative w-[135px] h-[65px] sm:w-[160px] mt-2">
+              <Image src="/assets/logo.png" fill alt="MyHomeHunt" />
             </div>
             <Group className="flex justify-center" h="100%">
               <Group className="flex justify-center" visibleFrom="md">
@@ -80,10 +82,12 @@ export const Header = () => {
                       <IconUserCircle
                         style={{ width: rem(25), height: rem(25) }}
                         stroke={1.5}
+                        color="white"
                       />
                       <IconChevronDown
                         style={{ width: rem(15), height: rem(15) }}
                         stroke={1.5}
+                        color="white"
                       />
                     </div>
                   </div>
@@ -109,6 +113,7 @@ export const Header = () => {
                 onClick={toggleDrawer}
                 hiddenFrom="md"
                 size={`${isXsSize ? "sm" : "md"}`}
+                color="white"
               />
             </Group>
           </Group>
