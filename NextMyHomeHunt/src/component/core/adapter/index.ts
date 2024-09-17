@@ -17,3 +17,4 @@ export { SimpleGridAdapter } from "./SimpleGridAdapter";
 export { TextAdapter } from "./TextAdapter";
 export { ThemeIconAdapter } from "./ThemeIconAdapter";
 export { UnstyledButtonAdapter } from "./UnstyledButtonAdapter";
+export { ImageAdapter } from "./ImageAdapter";
