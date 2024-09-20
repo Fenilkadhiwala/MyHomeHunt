@@ -140,3 +140,34 @@ export const NavigationItems = [
     hoverCardWidth: 180,
   },
 ];
+
+export const PropertySearchBoxItems = [
+  {
+    title: "Buy",
+    key: "buy",
+  },
+  {
+    title: "Rent",
+    key: "rent",
+  },
+  {
+    title: "New Arrivals",
+    key: "newArrivals",
+  },
+  {
+    title: "Commercial",
+    key: "commericial",
+  },
+  {
+    title: "Open Plots",
+    key: "openPlots",
+  },
+];
+
+export const SearchPropertiesPlaceholderTexts = [
+  "Search Properties",
+  "Search Ro houses in Adajan",
+  "Search Villas in Surat",
+  "Search Vesu",
+  "Search Flats in Althan",
+];
