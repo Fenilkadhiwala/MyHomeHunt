@@ -171,3 +171,28 @@ export const SearchPropertiesPlaceholderTexts = [
   "Search Vesu",
   "Search Flats in Althan",
 ];
+
+const residentialPropertyList = [
+  "Flats / Apartments",
+  "Independent Houses",
+  "Villa",
+  "Duplexes",
+  "Townhouses",
+  "Studio Apartments",
+  "Penthouses",
+  "Condos",
+  "Row Houses",
+  "Bungalows",
+];
+
+const commercialPropertyList = [
+  "Office Space",
+  "Retail Space",
+  "Warehouse",
+  "Industrial Space",
+  "Co-working Space",
+  "Hospitality (Hotels, Motels)",
+  "Restaurant",
+  "Shopping Mall",
+  "Mixed Use",
+];
