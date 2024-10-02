@@ -1,0 +1,1 @@
+export {PostProperty} from './PostProerty'

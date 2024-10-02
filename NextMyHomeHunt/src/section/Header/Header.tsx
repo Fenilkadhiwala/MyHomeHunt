@@ -7,6 +7,7 @@ import { DrawerNavigations } from "@/component/DrawerNavigations";
 import { LoginSignupModal } from "@/component/LoginSignup";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconChevronDown, IconUserCircle, IconUser } from "@tabler/icons-react";
+import { useRouter } from "next/navigation";
 import classes from "./HeaderMegaMenu.module.css";
 import {
   Box,
@@ -28,6 +29,8 @@ export const Header = () => {
   const theme = useMantineTheme();
   const isXsSize = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
+  const router = useRouter();
+
   const handleModalOpen = () => {
     closeDrawer();
     setShowLoginSignupModal(true);
@@ -39,6 +42,10 @@ export const Header = () => {
 
   const closeLoginSignupModal = () => {
     setShowLoginSignupModal(false);
+  };
+
+  const handlePostProperty = () => {
+    router.push("/post-property");
   };
 
   return (
@@ -61,6 +68,7 @@ export const Header = () => {
                 className="uppercase"
                 color="#F21616"
                 size={`${isXsSize ? "xs" : "sm"}`}
+                onClick={handlePostProperty}
               >
                 Post Property
               </Button>
