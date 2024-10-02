@@ -9,22 +9,22 @@ export const Roles = [
   },
 ];
 
-export const propertyTypes = [
+export const PropertyTypeList = [
   {
     title: "Residential Unit",
-    value: "residential unit"
+    value: "residential",
   },
   {
     title: "Commercial",
-    value:"commercial",
+    value: "commercial",
   },
   {
     title: "Open Plots",
-    value:"open plots",
-  }
+    value: "openPlots",
+  },
 ];
 
-export const postTypeOption = [
+export const PostTypeList = [
   {
     title: "Selling",
     value: "selling",

@@ -18,15 +18,15 @@ import {
   commercialPropertyList,
   openPlotPropertyList,
   Roles,
-  postTypeOption,
-  propertyTypes,
+  PostTypeList,
+  PropertyTypeList,
 } from "@/utility/constant";
 
 export const PostPropertyForm = () => {
   const [selectedPropertyTypeList, setSelectedPropertyTypeList] = useState(
     residentialPropertyList
   );
-  const [postTypeValue, setPostTypeValue] = useState<string | null>("sell");
+  const [postTypeValue, setPostTypeValue] = useState<string | null>("selling");
   const [roleValue, setRoleValue] = useState<string | null>("owner");
   const [propertyTypePlaceholder, setPropertyTypePlaceholder] =
     useState("residential");
@@ -78,7 +78,7 @@ export const PostPropertyForm = () => {
         Post your property at MyHomeHunt for free
       </Text>
       <div className="mt-4">
-        <Text className="mb-2" size="sm">
+        <Text className="mb-3" size="sm">
           You're posting this property for
         </Text>
         <ChipGroup
@@ -87,7 +87,7 @@ export const PostPropertyForm = () => {
           onChange={setPostTypeValue}
         >
           <Group>
-            {postTypeOption.map((item) => {
+            {PostTypeList.map((item) => {
               return (
                 <Chip
                   variant="light"
@@ -101,7 +101,7 @@ export const PostPropertyForm = () => {
             })}
           </Group>
         </ChipGroup>
-        <Text className="mb-2 mt-4" size="sm">
+        <Text className="mb-3 mt-5" size="sm">
           You are
         </Text>
         <ChipGroup multiple={false} value={roleValue} onChange={setRoleValue}>
@@ -127,13 +127,13 @@ export const PostPropertyForm = () => {
           label="Select type of property"
         >
           <Group mt="xs">
-            {propertyTypes.map((item) => {
+            {PropertyTypeList.map((item) => {
               return (
                 <Radio
                   color="#F21616"
                   checked
-                  value={item.title}
-                  label={item.value}
+                  value={item.value}
+                  label={item.title}
                   variant="outline"
                 />
               );
@@ -149,7 +149,7 @@ export const PostPropertyForm = () => {
           nothingFoundMessage="Nothing found..."
         />
         <TextInput
-          label="Contact number for clients to get in touch."
+          label="Contact number for clients to get in touch"
           placeholder="Contact number"
           className="mt-5"
         />
