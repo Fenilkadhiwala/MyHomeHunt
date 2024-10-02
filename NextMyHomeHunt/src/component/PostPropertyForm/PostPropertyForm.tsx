@@ -13,33 +13,12 @@ import {
   Button,
 } from "@mantine/core";
 import { IconArrowRight } from "@tabler/icons-react";
+import {
+  residentialPropertyList,
+  commercialPropertyList,
+} from "@/utility/constant";
 
 export const PostPropertyForm = () => {
-  const residentialPropertyList = [
-    "Flats / Apartments",
-    "Independent Houses",
-    "Villa",
-    "Duplexes",
-    "Townhouses",
-    "Studio Apartments",
-    "Penthouses",
-    "Condos",
-    "Row Houses",
-    "Bungalows",
-  ];
-
-  const commercialPropertyList = [
-    "Office Space",
-    "Retail Space",
-    "Warehouse",
-    "Industrial Space",
-    "Co-working Space",
-    "Hospitality (Hotels, Motels)",
-    "Restaurant",
-    "Shopping Mall",
-    "Mixed Use",
-  ];
-
   const [selectedPropertyTypeList, setSelectedPropertyTypeList] = useState(
     residentialPropertyList
   );
