@@ -16,6 +16,10 @@ import { IconArrowRight } from "@tabler/icons-react";
 import {
   residentialPropertyList,
   commercialPropertyList,
+  openPlotPropertyList,
+  Roles,
+  postTypeOption,
+  propertyTypes,
 } from "@/utility/constant";
 
 export const PostPropertyForm = () => {
@@ -54,6 +58,10 @@ export const PostPropertyForm = () => {
         setSelectedPropertyTypeList(commercialPropertyList);
         break;
 
+      case "openPlots":
+        setPropertyTypePlaceholder("open plots");
+        setSelectedPropertyTypeList(openPlotPropertyList);
+
       default:
         break;
     }
@@ -79,22 +87,18 @@ export const PostPropertyForm = () => {
           onChange={setPostTypeValue}
         >
           <Group>
-            <Chip
-              variant="light"
-              color="#F21616"
-              value="sell"
-              onClick={handleChipClickForPostType}
-            >
-              Selling
-            </Chip>
-            <Chip
-              value="rentOrLease"
-              variant="light"
-              color="#F21616"
-              onClick={handleChipClickForPostType}
-            >
-              Rent / Lease
-            </Chip>
+            {postTypeOption.map((item) => {
+              return (
+                <Chip
+                  variant="light"
+                  color="#F21616"
+                  value={item.value}
+                  onClick={handleChipClickForPostType}
+                >
+                  {item.title}
+                </Chip>
+              );
+            })}
           </Group>
         </ChipGroup>
         <Text className="mb-2 mt-4" size="sm">
@@ -102,22 +106,18 @@ export const PostPropertyForm = () => {
         </Text>
         <ChipGroup multiple={false} value={roleValue} onChange={setRoleValue}>
           <Group>
-            <Chip
-              variant="light"
-              color="#F21616"
-              value="owner"
-              onClick={handleChipClickForRole}
-            >
-              Owner
-            </Chip>
-            <Chip
-              value="broker"
-              variant="light"
-              color="#F21616"
-              onClick={handleChipClickForRole}
-            >
-              Broker
-            </Chip>
+            {Roles.map((item) => {
+              return (
+                <Chip
+                  variant="light"
+                  color="#F21616"
+                  value={item.value}
+                  onClick={handleChipClickForRole}
+                >
+                  {item.title}
+                </Chip>
+              );
+            })}
           </Group>
         </ChipGroup>
         <RadioGroup
@@ -127,25 +127,17 @@ export const PostPropertyForm = () => {
           label="Select type of property"
         >
           <Group mt="xs">
-            <Radio
-              color="#F21616"
-              checked
-              value="residential"
-              label="Residential Unit"
-              variant="outline"
-            />
-            <Radio
-              color="#F21616"
-              variant="outline"
-              value="commercial"
-              label="Commercial"
-            />
-            <Radio
-              color="#F21616"
-              variant="outline"
-              value="openPlots"
-              label="Open Plots"
-            />
+            {propertyTypes.map((item) => {
+              return (
+                <Radio
+                  color="#F21616"
+                  checked
+                  value={item.title}
+                  label={item.value}
+                  variant="outline"
+                />
+              );
+            })}
           </Group>
         </RadioGroup>
         <Select

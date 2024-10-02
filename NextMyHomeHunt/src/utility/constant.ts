@@ -1,3 +1,40 @@
+export const Roles = [
+  {
+    title: "Owner",
+    value: "owner",
+  },
+  {
+    title: "Broker",
+    value: "broker",
+  },
+];
+
+export const propertyTypes = [
+  {
+    title: "Residential Unit",
+    value: "residential unit"
+  },
+  {
+    title: "Commercial",
+    value:"commercial",
+  },
+  {
+    title: "Open Plots",
+    value:"open plots",
+  }
+];
+
+export const postTypeOption = [
+  {
+    title: "Selling",
+    value: "selling",
+  },
+  {
+    title: "Rent/Lease",
+    value: "rent/lease",
+  },
+];
+
 const RentalPropertyCategories = [
   {
     title: "Flat On Rent",
@@ -195,4 +232,18 @@ export const commercialPropertyList = [
   "Restaurant",
   "Shopping Mall",
   "Mixed Use",
+];
+
+export const openPlotPropertyList = [
+  "Residential Plots",
+  "Commercial Plots",
+  "Agricultural Land",
+  "Farmhouse Plots",
+  "Industrial Plots",
+  "Party Plots",
+  "Garden Plots",
+  "Resort Plots",
+  "Recreational Plots",
+  "Event Spaces",
+  "Investment Plots",
 ];

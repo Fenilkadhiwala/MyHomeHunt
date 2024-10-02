@@ -3,7 +3,7 @@ import { PostPropertyForm } from "../PostPropertyForm";
 
 export const PostProperty = () => {
   return (
-    <Grid className="bg-[#e6e5e5]">
+    <Grid>
       <GridCol span={{ base: 6 }}>
         <Image
           visibleFrom="md"
