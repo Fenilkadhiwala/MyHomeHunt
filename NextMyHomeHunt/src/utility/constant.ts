@@ -172,7 +172,7 @@ export const SearchPropertiesPlaceholderTexts = [
   "Search Flats in Althan",
 ];
 
-const residentialPropertyList = [
+export const residentialPropertyList = [
   "Flats / Apartments",
   "Independent Houses",
   "Villa",
@@ -185,7 +185,7 @@ const residentialPropertyList = [
   "Bungalows",
 ];
 
-const commercialPropertyList = [
+export const commercialPropertyList = [
   "Office Space",
   "Retail Space",
   "Warehouse",
