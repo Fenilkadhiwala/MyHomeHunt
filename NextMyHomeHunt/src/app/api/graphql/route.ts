@@ -11,9 +11,8 @@ const startServer = async () => {
   }
 
   const pool = new Pool({
-    connectionString: process.env.POSTGRAPHILE_URL,
+    connectionString: "postgresql://postgres:postgres@postgres:5432/myhomehunt",
   });
-
   const mergedSchema: any = await buildSchema(pool);
 
   const server = new ApolloServer({

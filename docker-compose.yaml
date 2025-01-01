@@ -28,6 +28,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    environment:
+      POSTGRAPHILE_URL: postgres://postgres:postgres@postgres:5432/myhomehunt
     command: yarn dev
 
 volumes:

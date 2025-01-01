@@ -14,13 +14,13 @@ export const buildSchema = async (pool: any) => {
 
   const executableSchema = makeExecutableSchema({
     typeDefs: typeDefs,
-    // resolvers: resolvers,
   });
 
   const mergedSchema = mergeSchemas({
     schemas: [postgraphileSchema, executableSchema],
-    resolvers
+    resolvers,
   });
 
+  // return mergedSchema;
   return postgraphileSchema;
 };

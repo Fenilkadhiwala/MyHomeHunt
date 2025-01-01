@@ -115,40 +115,40 @@ export const useSignupForm = (handleClose: any) => {
 
   const sendOtp = async () => {
     const contextObject = getContextObject();
-    createUser();
-    // const id = notificationShow({
-    //   loading: true,
-    //   title: "Sending OTP",
-    //   message: "Please wait while we send the OTP to your email.",
-    //   autoClose: false,
-    //   withCloseButton: false,
-    // });
+    // createUser();
+    const id = notificationShow({
+      loading: true,
+      title: "Sending OTP",
+      message: "Please wait while we send the OTP to your email.",
+      autoClose: false,
+      withCloseButton: false,
+    });
 
-    // return await sendMail(
-    //   userSignupDetailsObject?.email,
-    //   emailSubject,
-    //   contextObject,
-    //   emailTemplate
-    // )
-    //   .then(() => {
-    //     notificationUpdate({
-    //       id,
-    //       title: "OTP Sent Successfully",
-    //       message:
-    //         "A 6-digit OTP has been successfully sent to your email. Please check your inbox. ",
-    //       loading: false,
-    //       autoClose: 2000,
-    //     });
-    //     showOTPModal();
-    //   })
-    //   .catch((error) => {
-    //     console.error("error", error);
-    //     notificationShow({
-    //       message:
-    //         "We encountered an issue while sending the OTP. Please try again later.",
-    //       type: "error",
-    //     });
-    //   });
+    return await sendMail(
+      userSignupDetailsObject?.email,
+      emailSubject,
+      contextObject,
+      emailTemplate
+    )
+      .then(() => {
+        notificationUpdate({
+          id,
+          title: "OTP Sent Successfully",
+          message:
+            "A 6-digit OTP has been successfully sent to your email. Please check your inbox. ",
+          loading: false,
+          autoClose: 2000,
+        });
+        showOTPModal();
+      })
+      .catch((error) => {
+        console.error("error", error);
+        notificationShow({
+          message:
+            "We encountered an issue while sending the OTP. Please try again later.",
+          type: "error",
+        });
+      });
   };
 
   return {
